@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.search__field {
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.search__field--jumbo {
+  height: 40px;
+  width: 400px;
+  font-size: 32px;
+}
