@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.search__field {
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.search__field--jumbo {
+  height: 40px;
+  width: 600px;
+  font-size: 32px;
+}
+
+.result__block img {
+  width: 400px;
+}
