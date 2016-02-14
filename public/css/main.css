@@ -5,12 +5,17 @@ body {
 .search__field {
   border: 1px solid gray;
   border-radius: 4px;
+  color: black;
 }
 
 .search__field--jumbo {
   height: 40px;
   width: 600px;
   font-size: 32px;
+}
+
+.result__block {
+  color: black;
 }
 
 .result__block img {

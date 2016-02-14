@@ -25,9 +25,7 @@ async.eachSeries(urls, function(url, cb) {
       userData: url
     }
   }, function (error, response, body) {
-    if (error) { console.log(error); }
-
-    console.log(body);
+    if (error) { console.log(error); cb(error); }
 
     db.insert({
       id: body.persistedFaceId,
