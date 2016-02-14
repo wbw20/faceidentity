@@ -61,8 +61,6 @@ app.get('/similar/:id', function(req, res) {
   }, function (error, response, body) {
     if (error) { console.log(error); }
 
-    console.log(body);
-
     if (body[0]) {
       db.find({ id: body[0].persistedFaceId }, function (err, docs) {
         console.log(docs);

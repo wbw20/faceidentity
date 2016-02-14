@@ -12,7 +12,9 @@ var urls = require('./images');
 var API_KEY      = 'd30a56d36d634581b9ed4b39a9419969';
 var FACE_LIST_ID = 1;
 
-async.each(urls, function(url, cb) {
+async.eachSeries(urls, function(url, cb) {
+  console.log('FIRING: ' + url);
+
   request.post('https://api.projectoxford.ai/face/v1.0/facelists/' + FACE_LIST_ID + '/persistedFaces', {
     headers: {
       'Content-Type': 'application/json',
@@ -24,6 +26,8 @@ async.each(urls, function(url, cb) {
     }
   }, function (error, response, body) {
     if (error) { console.log(error); }
+
+    console.log(body);
 
     db.insert({
       id: body.persistedFaceId,
