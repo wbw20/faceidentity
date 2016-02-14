@@ -44,7 +44,7 @@ $(document).ready(function() {
                 if (result) {
                   $('.result__block').empty().append('<img src="' + result.url + '"/>');
                 } else {
-                  $('.result__block').empty().append('<h1>No matches<h1/>');
+                  $('.result__block').empty().append('<img src="' + 'http://myhealthyfitlife.com/wp-content/uploads/2010/09/No-Results-Found.jpg' + '"/>');
                 }
               });
             }
