@@ -48,6 +48,8 @@ $(document).ready(function() {
                   $('.result__block').empty().append('<img src="' + 'http://myhealthyfitlife.com/wp-content/uploads/2010/09/No-Results-Found.jpg' + '"/>');
                 }
               });
+            } else {
+                $('.result__block').empty().append('<h1>No Face Detected :|<h1/>');
             }
             else{$('.loader').hide();}
         }, 'json');
