@@ -26,16 +26,18 @@ $(document).ready(function() {
       colorcycle();
       setInterval(colorcycle, 15000);
     }, 1000);
-
+    
     $('.search__button').on('click', function() {
         var url = $('.search__field').val();
-
+        $('.loader').show();
+        
         $.post('/detect', {
             url: url
         }, function(data) {
             var result = data[0];
 
             if (result) {
+              $('.loader').hide();
               $.get('/similar/' + result.faceId, function(data2) {
                 var result = data2[0];
 
@@ -46,6 +48,7 @@ $(document).ready(function() {
                 }
               });
             }
+            else{$('.loader').hide();}
         }, 'json');
     });
 });
