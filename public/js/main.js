@@ -28,6 +28,14 @@ $(document).ready(function() {
     }, 1000);
 
     $('button').on('click', function() {
-      alert('hello');
+      $.get('/similar', function(results) {
+        var best = results[0];
+
+        if (best) {
+          $('body').append('<img src="' + best.url + '"/>');
+        } else {
+          alert('Nothing found!');
+        }
+      });
     });
 });
