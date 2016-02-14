@@ -28,6 +28,7 @@ $(document).ready(function() {
     }, 1000);
     
     $('.search__button').on('click', function() {
+        $('.result__block').empty()
         var url = $('.search__field').val();
         $('.loader').show();
         

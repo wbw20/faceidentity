@@ -54,17 +54,20 @@
 .backg
 {	
 	background-attachment:fixed;
-		background-color: #645862;
-		background-image:  url("images/faces_sketch_study_by_silentjustice-d59a7mm.jpg");
-		background-position: top center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		color: white;
-		cursor: default;
-		padding: 180px 0 120px;
-		text-align: center;
-		width: 100%;
-		float: left;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+	background-color: #645862;
+	background-image:  url("images/faces_sketch_study_by_silentjustice-d59a7mm.jpg");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	cursor: default;
+	padding: 180px 0 120px;
+	text-align: center;
+	width: 100%;
+	float: left;
 
 }
 @-moz-keyframes reveal-banner { 0% { opacity: 0; } 100% { opacity: 1; } }
