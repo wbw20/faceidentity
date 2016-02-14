@@ -42,6 +42,8 @@ $(document).ready(function() {
               $.get('/similar/' + result.faceId, function(data2) {
                 var result = data2[0];
 
+                $('.loader').hide();
+
                 if (result) {
                   $('.result__block').empty().append('<img src="' + result.url + '"/>');
                 } else {
@@ -49,9 +51,9 @@ $(document).ready(function() {
                 }
               });
             } else {
-                $('.result__block').empty().append('<h1>No Face Detected :|<h1/>');
+              $('.loader').hide();
+              $('.result__block').empty().append('<h1>No Face Detected :|<h1/>');
             }
-            else{$('.loader').hide();}
         }, 'json');
     });
 });
