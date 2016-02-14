@@ -10,6 +10,10 @@ body {
 
 .search__field--jumbo {
   height: 40px;
-  width: 400px;
+  width: 600px;
   font-size: 32px;
+}
+
+.result__block img {
+  width: 400px;
 }

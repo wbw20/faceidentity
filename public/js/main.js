@@ -27,15 +27,25 @@ $(document).ready(function() {
       setInterval(colorcycle, 15000);
     }, 1000);
 
-    $('button').on('click', function() {
-      $.get('/similar', function(results) {
-        var best = results[0];
+    $('.search__button').on('click', function() {
+        var url = $('.search__field').val();
 
-        if (best) {
-          $('body').append('<img src="' + best.url + '"/>');
-        } else {
-          alert('Nothing found!');
-        }
-      });
+        $.post('/detect', {
+            url: url
+        }, function(data) {
+            var result = data[0];
+
+            if (result) {
+              $.get('/similar/' + result.faceId, function(data2) {
+                var result = data2[0];
+
+                if (result) {
+                  $('.result__block').empty().append('<img src="' + result.url + '"/>');
+                } else {
+                  $('.result__block').empty().append('<h1>No matches<h1/>');
+                }
+              });
+            }
+        }, 'json');
     });
 });

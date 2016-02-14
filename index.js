@@ -1,4 +1,5 @@
 var express = require('express');
+var parser  = require('body-parser')
 var request = require('request');
 var _       = require('underscore');
 
@@ -25,6 +26,9 @@ var faces = {
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.use(parser.urlencoded({ extended: false }));
+app.use(parser.json());
+
 app.get('/', function(req, res) {
   res.render('pages/index');
 });
@@ -36,7 +40,7 @@ app.post('/detect', function(req, res) {
       'Ocp-Apim-Subscription-Key': API_KEY
     },
     json: {
-      url: FAKE_URL
+      url: req.body.url
     }
   }, function (error, response, body) {
     if (error) { console.log(error); }
@@ -45,7 +49,7 @@ app.post('/detect', function(req, res) {
   });
 });
 
-app.get('/similar', function(req, res) {
+app.get('/similar/:id', function(req, res) {
   request.post('https://api.projectoxford.ai/face/v1.0/findsimilars', {
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +57,7 @@ app.get('/similar', function(req, res) {
     },
     json: {
       faceListId: FACE_LIST_ID,
-      faceId: 'e0486fea-2125-479b-b941-bfe6aee975ba'
+      faceId: req.params.id
     }
   }, function (error, response, body) {
     if (error) { console.log(error); }
